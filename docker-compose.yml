@@ -1,0 +1,17 @@
+services:
+  screenshot-agent:
+    build: .
+    volumes:
+      # Mount your real photo folder here (left side = your machine)
+      - ./watched_folder:/app/watched_folder
+      # Persist downloaded model weights across container rebuilds/restarts
+      - hf_cache:/app/hf_cache
+      # Persist computed embeddings so restarts don't re-embed everything
+      - embedding_cache:/app/cache
+    # Args passed to watch_and_classify.py: folder, recluster_interval_seconds
+    # Runs forever; `docker compose down` / `docker stop` shuts it down cleanly.
+    command: ["/app/watched_folder", "30"]
+
+volumes:
+  hf_cache:
+  embedding_cache:

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.git
+.gitignore
+.pytest_cache/
+tests/
+watched_folder/
+hf_cache/
+embeddings_cache.db
+*.zip
+README.md
