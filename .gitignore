@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# runtime artifacts, not source
+embeddings_cache.db
+watched_folder/
+hf_cache/
+
+.env
+*.log
